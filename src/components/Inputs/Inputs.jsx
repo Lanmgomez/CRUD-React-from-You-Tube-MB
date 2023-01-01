@@ -1,6 +1,6 @@
 import "./Input.sass"
 
-const Inputs = ({ type, text, name, placeholder, handleChange, value }) => {
+const Inputs = ({ type, text, name, placeholder, handleOnChange, value }) => {
   return (
     <div className="form-control">
         <label htmlFor={name}>{text}:</label>
@@ -9,8 +9,9 @@ const Inputs = ({ type, text, name, placeholder, handleChange, value }) => {
             placeholder={placeholder}
             id={name}
             name={name}
-            onChange={handleChange}
-            value={value}       
+            onChange={handleOnChange}
+            value={value || ""}
+            required    
         />
     </div>
   )
