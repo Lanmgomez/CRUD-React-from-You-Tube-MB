@@ -18,7 +18,7 @@ const NewProject = () => {
           body: JSON.stringify(project)
     })
       .then((response) => response.json())
-      .then((data) => { console.log(data); navigate('/Cadastros') })
+      .then((data) => { console.log(data); navigate('/Cadastros', { state: {message: "Projeto criado com sucesso!"} }) })
       .catch((error) => console.log(error))
   }
 
