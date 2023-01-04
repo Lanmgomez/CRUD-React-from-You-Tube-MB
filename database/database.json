@@ -1,17 +1,5 @@
 {
-  "projects": [
-    {
-      "name": "testando",
-      "budget": "5000",
-      "category": {
-        "id": "1",
-        "name": "Infraestrutura"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    }
-  ],
+  "projects": [  ],
   "categories": [
     {
       "id": 1,

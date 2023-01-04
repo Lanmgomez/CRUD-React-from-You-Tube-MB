@@ -14,9 +14,9 @@ const ProjectForm = ({ handleSubmit, projectData }) => {
 
 
     const CategoriesUrl = "http://localhost:5000/categories/"
-
-    // Fetch method 01 
+ 
     /*
+    01 - Fetch method 01:
     useEffect(() => {
         const FetchCategories = async () => {
             const response = await fetch(CategoriesUrl)
@@ -27,7 +27,7 @@ const ProjectForm = ({ handleSubmit, projectData }) => {
     }, [])
     */
 
-// Fetch method 02
+/* 02 - Fetch method 02:
    useEffect(() => {
         const FetchCategories = async () => {
             await fetch(CategoriesUrl, {
@@ -37,6 +37,16 @@ const ProjectForm = ({ handleSubmit, projectData }) => {
             .then(response => response.json())
             .then(data => { setCategories(data) })
             .catch(error => console.log(error))
+        }
+        FetchCategories()
+   }, [])
+*/
+// 03 - Axios lib:
+   useEffect(() => {
+        const FetchCategories = async () => {
+            await axios.get(CategoriesUrl)
+                       .then((response) => { setCategories(response.data) })
+                       .catch((error) => console.log(error))
         }
         FetchCategories()
    }, [])
