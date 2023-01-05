@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <MenuNavbar />
-        <Container>
+        <Container customClass="min-height">
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/AboutUs" element={<AboutUs />}/>
