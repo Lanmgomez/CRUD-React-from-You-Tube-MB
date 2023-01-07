@@ -44,19 +44,20 @@ const EditProjectPage = () => {
 
     const buttonEdit = {
         bgcolor: "#000",
-        color: "#fb3"
+        color: "#fb3",
+        top: "20px" 
     }
 
   return (
-    <div>{registeredProjects.name ? (
-        <div>
-            <Container customClass="column">
-                <div>
+    <div className="project-edit-card">{registeredProjects.name ? (
+            <Container>
+                <div className="project-edit-card2">
                     <h1>Projeto: {registeredProjects.name}</h1>
-                            <p>Categorria: {registeredProjects.category.name}</p>
-                            <p>Total de Orçamento: {registeredProjects.budget}</p>
-                            <p>Total Utilizado: {registeredProjects.cost}</p>
+                            <p><span>Categoria:</span> {registeredProjects.category.name}</p>
+                            <p><span>Total de Orçamento:</span> R$ {registeredProjects.budget}</p>
+                            <p><span>Total Utilizado:</span> R$ {registeredProjects.cost}</p>
                         <Button sx={buttonEdit} onClick={handleOpen}>Editar projeto</Button>
+                </div>
                         <Modal
                             open={open}
                             onClose={handleClose}
@@ -69,16 +70,16 @@ const EditProjectPage = () => {
                                 </Typography>
                                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                                     <p>Projeto: {registeredProjects.name}</p>
-                                    <p>Categorria: {registeredProjects.category.name}</p>
+                                    <p>Categoria: {registeredProjects.category.name}</p>
                                     <p>Total de Orçamento: {registeredProjects.budget}</p>
                                     <p>Total Utilizado: {registeredProjects.cost}</p>
                                 </Typography>
                             </Box>
                         </Modal>
-                </div>
+                
             </Container>
-        </div>
-    ) : (<Loader />)}</div>
+    ) : (<Loader />)}
+    </div>
   )
 }
 
