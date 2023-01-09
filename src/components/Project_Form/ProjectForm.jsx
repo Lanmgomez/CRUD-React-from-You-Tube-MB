@@ -12,35 +12,8 @@ const ProjectForm = ({ handleSubmit, projectData }) => {
     const [categories, setCategories] = useState([])
     const [project, setProject] = useState(projectData || {})
 
-
     const CategoriesUrl = "http://localhost:5000/categories/"
  
-    /*
-    01 - Fetch method 01:
-    useEffect(() => {
-        const FetchCategories = async () => {
-            const response = await fetch(CategoriesUrl)
-            const data = await response.json()
-            setCategories(data)
-        }
-        FetchCategories()
-    }, [])
-    */
-
-/* 02 - Fetch method 02:
-   useEffect(() => {
-        const FetchCategories = async () => {
-            await fetch(CategoriesUrl, {
-                method: "GET",
-                headers: { 'Content-Type': 'application/json' }
-            })
-            .then(response => response.json())
-            .then(data => { setCategories(data) })
-            .catch(error => console.log(error))
-        }
-        FetchCategories()
-   }, [])
-*/
 // 03 - Axios lib:
    useEffect(() => {
         const FetchCategories = async () => {
@@ -100,7 +73,7 @@ const ProjectForm = ({ handleSubmit, projectData }) => {
             />
         </div>
         <div>
-            <CreateNewProjectButton text={`Criar Novo Projeto`}/>
+            <CreateNewProjectButton text={`Salvar`}/>
         </div>
     </form>
   )

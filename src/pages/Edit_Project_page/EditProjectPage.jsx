@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import ProjectForm from "../../components/Project_Form/ProjectForm"
 
 const EditProjectPage = () => {
 
@@ -28,6 +29,12 @@ const EditProjectPage = () => {
                 .catch((error) => console.log(error)) 
         }, 300)
     }, [id])
+
+    const editPost = (registeredProjects) => {
+        axios.patch(`http://localhost:5000/projects/${registeredProjects.id}`, registeredProjects)
+             .then((response) => { setRegisteredProjects(response.data), handleClose() })
+             .catch((error) => console.log(error))      
+    }
 
     // css lib modal @material/ui
     const style = {
@@ -69,14 +76,13 @@ const EditProjectPage = () => {
                                     Edite as Informações
                                 </Typography>
                                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                    <p>Projeto: {registeredProjects.name}</p>
-                                    <p>Categoria: {registeredProjects.category.name}</p>
-                                    <p>Total de Orçamento: {registeredProjects.budget}</p>
-                                    <p>Total Utilizado: {registeredProjects.cost}</p>
+                                    <ProjectForm 
+                                        handleSubmit={editPost} 
+                                        projectData={registeredProjects}
+                                    />
                                 </Typography>
                             </Box>
                         </Modal>
-                
             </Container>
     ) : (<Loader />)}
     </div>
