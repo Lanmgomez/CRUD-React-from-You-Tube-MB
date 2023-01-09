@@ -2,6 +2,7 @@ import "./EditProjectPage.sass"
 // hooks
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { useLocation } from "react-router-dom"
 // components
 import Loader from "../../components/Loader/Loader"
 import Container from "../../layout/Container"
@@ -11,6 +12,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import ProjectForm from "../../components/Project_Form/ProjectForm"
+import Messages from "../../layout/Messages"
 
 const EditProjectPage = () => {
 
@@ -22,6 +24,8 @@ const EditProjectPage = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const [editMessageSucess, setEditMessageSucess] = useState(false)
+
     useEffect(() => {
         setTimeout(() => {
             axios.get(`http://localhost:5000/projects/${id}`)
@@ -30,10 +34,19 @@ const EditProjectPage = () => {
         }, 300)
     }, [id])
 
+    const MessageSucess = () => {
+        setEditMessageSucess(true)
+        const timer = setTimeout(() => { setEditMessageSucess(false) }, 3500)
+        return () => clearTimeout(timer)
+    }
+
     const editPost = (registeredProjects) => {
         axios.patch(`http://localhost:5000/projects/${registeredProjects.id}`, registeredProjects)
-             .then((response) => { setRegisteredProjects(response.data), handleClose() })
-             .catch((error) => console.log(error))      
+             .then((response) => { setRegisteredProjects(response.data), 
+                                   handleClose(), 
+                                   MessageSucess()
+              })
+             .catch((error) => console.log(error))            
     }
 
     // css lib modal @material/ui
@@ -58,6 +71,7 @@ const EditProjectPage = () => {
   return (
     <div className="project-edit-card">{registeredProjects.name ? (
             <Container>
+                {editMessageSucess &&  <p className="editMessageSucess">Alterações salvas</p>}
                 <div className="project-edit-card2">
                     <h1>Projeto: {registeredProjects.name}</h1>
                             <p><span>Categoria:</span> {registeredProjects.category.name}</p>

@@ -12,18 +12,6 @@ const NewProject = () => {
     project.cost = 0
     project.services = []
 
-    /*
-    01 - Fetch:
-    await fetch(URL_Projects, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(project)
-    })
-      .then((response) => response.json())
-      .then((data) => { console.log(data); navigate('/Cadastros', { state: {message: "Projeto criado com sucesso!"} }) })
-      .catch((error) => console.log(error))
-    */
-
     // 02 - Axios lib  
     await axios.post(URL_Projects, project)
                .then((response) => { console.log(response); navigate('/Cadastros', { state: {message: "Projeto criado com sucesso!"} }) })

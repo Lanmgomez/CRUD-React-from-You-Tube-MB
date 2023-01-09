@@ -24,10 +24,10 @@
     },
     {
       "name": "teste 3",
-      "budget": "400",
+      "budget": "700",
       "category": {
-        "id": "3",
-        "name": "Design"
+        "id": "1",
+        "name": "Infraestrutura"
       },
       "cost": 0,
       "services": [],
