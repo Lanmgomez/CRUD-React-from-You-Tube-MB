@@ -6,9 +6,9 @@ import { useState, useEffect } from "react"
 // components
 import Messages from "../../layout/Messages"
 import Container from "../../layout/Container"
-import NewProjectButton from "../../components/Button/NewProjectButton"
 import ProjectCardInfos from "../../components/Projects_Cards_Infos/ProjectCardInfos"
 import Loader from "../../components/Loader/Loader"
+import NewProjectButton from "../../components/Button/NewProjectButton"
  
 const Cadastros = () => {
 
@@ -48,7 +48,7 @@ const Cadastros = () => {
     <div className="project-container">
       <div className="title-container">
         <h1>Meus Projetos</h1>
-        <NewProjectButton to={`/NewProject`} text="Novo Projeto" />
+        <NewProjectButton to={`/NewProject`} btnText={`Novo Projeto`} />
       </div>
       {message && <Messages msg={message} type={`success`} />}
       <Container customClass="start">

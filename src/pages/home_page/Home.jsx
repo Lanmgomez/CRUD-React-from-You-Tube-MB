@@ -7,7 +7,7 @@ const Home = () => {
     <section className="home-container">
       <h1>Bem vindo ao <span>Costs</span></h1>
         <p>Comece a gerenciar os seus projetos agora mesmo!</p>
-        <NewProjectButton to={`/NewProject`} text="Novo Projeto"/>
+          <NewProjectButton to={`/NewProject`} btnText={`Novo Projeto`} />
         <img src={savings} className="savings-img" alt="Costs" />
     </section>
   )

@@ -3,8 +3,9 @@
     display: flex
 
     .project-edit-card2
-        padding: 2em 10em 5em
-        margin-left: -30%
+        padding: 2em 5em
+        width: 100%
+        margin-left: -25%
 
     .editMessageSucess
         width: 195px
@@ -16,12 +17,39 @@
         color: #155724
         background-color: #d4edda
         border-color: #c3ebcb
-    h1
+
+    .service-form-container, .services
+        margin-top: 2em
+        margin-left: -15%
+        border-bottom: 1px solid #7a7a7a
+        margin-bottom: 1.2em
+        padding-bottom: 1.2em
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        flex-wrap: wrap
+
+    .errorServiceMSG
+        color: #721c24
+        background-color: #f8d7da
+        border-color: #f5c6cb
+        padding: 1em
+        margin: 0 auto
+        text-align: center
+        margin-bottom: 2em
+        border-radius: 5px
+
+    .title
         background-color: #000
         color: #fb3
         width: 100%
         padding: 10px 20px 10px 20px
         font-size: 4em
+
+    h1
+        width: 100%
+        padding: 10px 20px 10px 20px
+        font-size: 2em
 
     p
         margin-top: .5em
@@ -30,3 +58,12 @@
 
     span
         font-weight: 900
+
+    .add-service-btn-style
+        background-color: #000
+        color: #fb3
+        padding: 10px
+        transition: .5s
+
+        &:hover
+            background-color: #fff

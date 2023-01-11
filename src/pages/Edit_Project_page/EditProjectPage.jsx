@@ -2,29 +2,33 @@ import "./EditProjectPage.sass"
 // hooks
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { useLocation } from "react-router-dom"
 // components
 import Loader from "../../components/Loader/Loader"
-import Container from "../../layout/Container"
+import ServicesForm from "../../components/Services_Form/ServicesForm"
+import ProjectForm from "../../components/Project_Form/ProjectForm"
 // material ui
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import ProjectForm from "../../components/Project_Form/ProjectForm"
-import Messages from "../../layout/Messages"
 
 const EditProjectPage = () => {
 
     const { id } = useParams()
     
+    // api
     const [registeredProjects, setRegisteredProjects] = useState([])
-    const [open, setOpen] = useState(false);
 
+    // modal 
+    const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // messages
     const [editMessageSucess, setEditMessageSucess] = useState(false)
+    const [errorServiceMSG, setErrorServiceMSG] = useState(false)
+    // component
+    const [showServiceForm, setServiceForm] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
@@ -41,12 +45,36 @@ const EditProjectPage = () => {
     }
 
     const editPost = (registeredProjects) => {
+        // budget validation
+        if (registeredProjects.budget < registeredProjects.cost) {
+            // message
+        }
+
         axios.patch(`http://localhost:5000/projects/${registeredProjects.id}`, registeredProjects)
-             .then((response) => { setRegisteredProjects(response.data), 
-                                   handleClose(), 
-                                   MessageSucess()
-              })
+             .then((response) => { setRegisteredProjects(response.data), handleClose(), MessageSucess() })
              .catch((error) => console.log(error))            
+    }
+
+    const toggleServiceForm = () => {
+        setServiceForm(!showServiceForm)
+    }
+
+    const createService = (registeredProjects) => {
+
+        // last service
+        const lastService = registeredProjects.services[registeredProjects.services.length -1]
+        lastService.id = Math.floor( Math.random() * 1000 )
+
+        const lastServiceCost = lastService.cost
+        const newCost = parseFloat(registeredProjects.cost) + parseFloat(lastServiceCost)
+
+        console.log(lastServiceCost)
+
+        // maximum value validation
+        if (newCost > parseFloat(registeredProjects.budget)) {
+            setErrorServiceMSG(true)
+            console.log(errorServiceMSG)
+        }
     }
 
     // css lib modal @material/ui
@@ -70,10 +98,10 @@ const EditProjectPage = () => {
 
   return (
     <div className="project-edit-card">{registeredProjects.name ? (
-            <Container>
+            <div>
                 {editMessageSucess &&  <p className="editMessageSucess">Alterações salvas</p>}
                 <div className="project-edit-card2">
-                    <h1>Projeto: {registeredProjects.name}</h1>
+                    <h1 className="title">Projeto: {registeredProjects.name}</h1>
                             <p><span>Categoria:</span> {registeredProjects.category.name}</p>
                             <p><span>Total de Orçamento:</span> R$ {registeredProjects.budget}</p>
                             <p><span>Total Utilizado:</span> R$ {registeredProjects.cost}</p>
@@ -97,7 +125,25 @@ const EditProjectPage = () => {
                                 </Typography>
                             </Box>
                         </Modal>
-            </Container>
+                <div className="service-form-container">
+                    <h1>Adicione um serviço:&nbsp;
+                        <button className="add-service-btn-style" onClick={toggleServiceForm}>
+                        {!showServiceForm ? "+" : "Fechar"}  
+                        </button>
+                    </h1>
+                    {errorServiceMSG && <p className="errorServiceMSG">Orçamento excedeu o limite, verifique novamente!</p>}
+                    {showServiceForm && (
+                            <ServicesForm 
+                                handleSubmit={createService}
+                                projectData={registeredProjects} 
+                            />
+                        )}
+                </div>
+                <div className="services">
+                    <h1>Serviços:</h1>
+                        <p>Serviços adicionados</p>
+                </div>
+            </div>
     ) : (<Loader />)}
     </div>
   )

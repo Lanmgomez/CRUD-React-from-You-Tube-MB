@@ -1,10 +1,10 @@
 import './NewProjectButton.sass'
 import { Link } from 'react-router-dom'
 
-const NewProjectButton = ({ to, text }) => {
+const NewProjectButton = ({ to, btnText }) => {
   return (
     <button className='btn'>
-        <Link to={to}>{text}</Link>
+        <Link to={to}>{btnText}</Link>
     </button>
   )
 }
