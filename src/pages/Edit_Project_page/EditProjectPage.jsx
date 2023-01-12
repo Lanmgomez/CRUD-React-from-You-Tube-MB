@@ -60,21 +60,28 @@ const EditProjectPage = () => {
     }
 
     const createService = (registeredProjects) => {
-
         // last service
         const lastService = registeredProjects.services[registeredProjects.services.length -1]
         lastService.id = Math.floor( Math.random() * 1000 )
-
         const lastServiceCost = lastService.cost
         const newCost = parseFloat(registeredProjects.cost) + parseFloat(lastServiceCost)
 
-        console.log(lastServiceCost)
-
-        // maximum value validation
+        // maximum value validation cost vs budget
         if (newCost > parseFloat(registeredProjects.budget)) {
             setErrorServiceMSG(true)
-            console.log(errorServiceMSG)
+            const timer = setTimeout(() => { setErrorServiceMSG(false) }, 4000)
+            return () => clearTimeout(timer)
+        } else {
+            MessageSucess()
+            setServiceForm(false)
         }
+        // add service cost to project total cost
+        registeredProjects.cost = newCost
+
+        // update project
+        axios.patch(`http://localhost:5000/projects/${registeredProjects.id}`, registeredProjects)
+            .then((response) => { setRegisteredProjects(response.data), console.log(response.data) })
+            .catch((error) => console.log(error))
     }
 
     // css lib modal @material/ui
@@ -131,7 +138,7 @@ const EditProjectPage = () => {
                         {!showServiceForm ? "+" : "Fechar"}  
                         </button>
                     </h1>
-                    {errorServiceMSG && <p className="errorServiceMSG">Orçamento excedeu o limite, verifique novamente!</p>}
+                    {errorServiceMSG && <p className="errorServiceMSG">Custo excedeu o limite de orçamento, verifique novamente!</p>}
                     {showServiceForm && (
                             <ServicesForm 
                                 handleSubmit={createService}

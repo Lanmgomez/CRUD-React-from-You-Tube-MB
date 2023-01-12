@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "teste 1",
-      "budget": "1000",
+      "budget": "10000",
       "category": {
         "id": "3",
         "name": "Design"
@@ -24,7 +24,7 @@
     },
     {
       "name": "teste 3",
-      "budget": "700",
+      "budget": "100",
       "category": {
         "id": "1",
         "name": "Infraestrutura"
