@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 // components
 import Loader from "../../components/Loader/Loader"
 import ServicesForm from "../../components/Services_Form/ServicesForm"
+import ServicesCard from "../../components/Services_Card/ServicesCard"
 import ProjectForm from "../../components/Project_Form/ProjectForm"
 // material ui
 import Box from '@mui/material/Box';
@@ -18,6 +19,7 @@ const EditProjectPage = () => {
     
     // api
     const [registeredProjects, setRegisteredProjects] = useState([])
+    const [registeredServices, setRegisteredServices] = useState([])
 
     // modal 
     const [open, setOpen] = useState(false);
@@ -27,21 +29,35 @@ const EditProjectPage = () => {
     // messages
     const [editMessageSucess, setEditMessageSucess] = useState(false)
     const [errorServiceMSG, setErrorServiceMSG] = useState(false)
+    const [deleteServiceMSG, setDeleteServiceMSG] = useState(false)
     // component
     const [showServiceForm, setServiceForm] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
             axios.get(`http://localhost:5000/projects/${id}`)
-                .then((response) => { setRegisteredProjects(response.data) })
+                .then((response) => { setRegisteredProjects(response.data), setRegisteredServices(response.data.services) })
                 .catch((error) => console.log(error)) 
         }, 300)
     }, [id])
 
+    // messages
     const MessageSucess = () => {
         setEditMessageSucess(true)
         const timer = setTimeout(() => { setEditMessageSucess(false) }, 3500)
         return () => clearTimeout(timer)
+    }
+
+    const deleteServiceMSGs = () => {
+        setDeleteServiceMSG(true)
+        const timer = setTimeout(() => { setDeleteServiceMSG(false) }, 3500)
+        return () => clearTimeout(timer)
+    }
+
+    const errorCostServiceValidation = () => {
+        setErrorServiceMSG(true)
+            const timer = setTimeout(() => { setErrorServiceMSG(false) }, 4000)
+            return () => clearTimeout(timer)
     }
 
     const editPost = (registeredProjects) => {
@@ -68,9 +84,8 @@ const EditProjectPage = () => {
 
         // maximum value validation cost vs budget
         if (newCost > parseFloat(registeredProjects.budget)) {
-            setErrorServiceMSG(true)
-            const timer = setTimeout(() => { setErrorServiceMSG(false) }, 4000)
-            return () => clearTimeout(timer)
+            errorCostServiceValidation()
+            return
         } else {
             MessageSucess()
             setServiceForm(false)
@@ -82,6 +97,24 @@ const EditProjectPage = () => {
         axios.patch(`http://localhost:5000/projects/${registeredProjects.id}`, registeredProjects)
             .then((response) => { setRegisteredProjects(response.data), console.log(response.data) })
             .catch((error) => console.log(error))
+    }
+
+    // remove service 
+    const handleRemoveService = (id, cost) => {
+        // removing cost register of total budget (rescuing cost)
+        const servicesUpdated = registeredProjects.services.filter((service) => service.id !== id)
+        const projectUpdated = registeredProjects
+        projectUpdated.services = servicesUpdated
+
+        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
+
+        axios.patch(`http://localhost:5000/projects/${projectUpdated.id}`, projectUpdated)
+             .then((response) => { 
+                setRegisteredProjects(projectUpdated),
+                setRegisteredServices(servicesUpdated),
+                deleteServiceMSGs()
+            })
+            .catch((error) => console.log(error)) 
     }
 
     // css lib modal @material/ui
@@ -138,17 +171,31 @@ const EditProjectPage = () => {
                         {!showServiceForm ? "+" : "Fechar"}  
                         </button>
                     </h1>
-                    {errorServiceMSG && <p className="errorServiceMSG">Custo excedeu o limite de orçamento, verifique novamente!</p>}
+                    {errorServiceMSG && <p className="errorServiceMSG">Custo excedeu o limite do orçamento, verifique novamente!</p>}
                     {showServiceForm && (
                             <ServicesForm 
                                 handleSubmit={createService}
                                 projectData={registeredProjects} 
+                                btnText={"Adicionar Serviço"}
                             />
                         )}
                 </div>
                 <div className="services">
                     <h1>Serviços:</h1>
-                        <p>Serviços adicionados</p>
+                        {deleteServiceMSG && <p className="errorServiceMSG">Serviço deletado com sucesso!</p>}
+                        {registeredServices.length === 0 && <p>Não há serviços cadastrados.</p>}
+                        {registeredServices.length > 0 && 
+                            registeredServices.map((services) => (
+                                <ServicesCard 
+                                    key={services.id}
+                                    id={services.id}
+                                    name={services.name}
+                                    cost={services.cost}
+                                    description={services.description}
+                                    handleRemove={handleRemoveService}
+                                />
+                            ))
+                        }
                 </div>
             </div>
     ) : (<Loader />)}

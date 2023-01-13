@@ -4,8 +4,9 @@ import "./ServicesForm.sass"
 import { useState } from "react"
 // components
 import Inputs from '../Inputs/Inputs'
+import CreateNewProjectButton from "../Create_New_Project_Button/CreateNewProjectButton"
 
-const ServicesForm = ({ handleSubmit, projectData }) => {
+const ServicesForm = ({ handleSubmit, projectData, btnText }) => {
 
     const [services, setService] = useState([])
 
@@ -45,7 +46,7 @@ const ServicesForm = ({ handleSubmit, projectData }) => {
             handleOnChange={handleChange}
             value={services.description ? services.description : "" }
         />
-        <input type="submit" className="btn-add" value={`Adicionar Serviço`} />
+        <CreateNewProjectButton text={btnText} /> 
     </form>
   )
 }

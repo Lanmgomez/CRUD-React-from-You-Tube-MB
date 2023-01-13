@@ -18,18 +18,31 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 20,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "10",
+          "description": "teste",
+          "id": 784
+        },
+        {
+          "name": "teste2",
+          "cost": "10",
+          "description": "teste",
+          "id": 683
+        }
+      ],
       "id": 2
     },
     {
       "name": "teste 3",
-      "budget": "100",
+      "budget": "1000",
       "category": {
         "id": "1",
         "name": "Infraestrutura"
       },
-      "cost": 0,
+      "cost": -1000,
       "services": [],
       "id": 3
     },
@@ -73,13 +86,20 @@
         "id": "3",
         "name": "Design"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 5,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "5",
+          "description": "teste",
+          "id": 316
+        }
+      ],
       "id": 7
     },
     {
       "name": "teste 8",
-      "budget": "700",
+      "budget": "900",
       "category": {
         "id": "1",
         "name": "Infraestrutura"
