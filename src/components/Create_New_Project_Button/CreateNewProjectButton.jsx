@@ -2,7 +2,7 @@ import './CreateNewProjectButton.sass'
 
 const CreateNewProjectButton = ({ text }) => {
   return (
-    <button className='create-new-project-button'>{text}</button>
+    <button id='refresh' className='create-new-project-button'>{text}</button>
   )
 }
 

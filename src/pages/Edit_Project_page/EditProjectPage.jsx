@@ -85,18 +85,20 @@ const EditProjectPage = () => {
         // maximum value validation cost vs budget
         if (newCost > parseFloat(registeredProjects.budget)) {
             errorCostServiceValidation()
+            setTimeout(() => { window.location.reload() }, 3500)
             return
-        } else {
+        } 
+        if (newCost < parseFloat(registeredProjects.budget)) {
+            setTimeout(() => { window.location.reload() }, 1000)
             MessageSucess()
             setServiceForm(false)
-        }
         // add service cost to project total cost
         registeredProjects.cost = newCost
-
         // update project
         axios.patch(`http://localhost:5000/projects/${registeredProjects.id}`, registeredProjects)
             .then((response) => { setRegisteredProjects(response.data), console.log(response.data) })
             .catch((error) => console.log(error))
+        }
     }
 
     // remove service 

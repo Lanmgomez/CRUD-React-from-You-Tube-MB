@@ -22,7 +22,6 @@ const MenuNavbar = () => {
       </div>
       <ul className='ul-navbar'>
         <li><Link to={`/`}>Home</Link></li>
-        <li><Link to={`/AboutUs`}>Sobre Nós</Link></li>
         <li><Link to={`/Cadastros`}>Cadastros</Link></li>
         <li><Link to={`/NewProject`}>Novo Projeto</Link></li>
       </ul>

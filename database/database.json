@@ -18,21 +18,8 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 20,
-      "services": [
-        {
-          "name": "teste",
-          "cost": "10",
-          "description": "teste",
-          "id": 784
-        },
-        {
-          "name": "teste2",
-          "cost": "10",
-          "description": "teste",
-          "id": 683
-        }
-      ],
+      "cost": 0,
+      "services": [],
       "id": 2
     },
     {
@@ -42,8 +29,15 @@
         "id": "1",
         "name": "Infraestrutura"
       },
-      "cost": -1000,
-      "services": [],
+      "cost": 1000,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "2000",
+          "description": "1",
+          "id": 883
+        }
+      ],
       "id": 3
     },
     {
@@ -53,8 +47,15 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 600,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "600",
+          "description": "1",
+          "id": 997
+        }
+      ],
       "id": 4
     },
     {
@@ -75,8 +76,33 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 95,
+      "services": [
+        {
+          "name": "teste 2",
+          "cost": "50",
+          "description": "1",
+          "id": 8
+        },
+        {
+          "name": "teste 3",
+          "cost": "40",
+          "description": "t",
+          "id": 959
+        },
+        {
+          "name": "teste 4",
+          "cost": "4",
+          "description": "s",
+          "id": 148
+        },
+        {
+          "name": "teste 5",
+          "cost": "1",
+          "description": "1",
+          "id": 612
+        }
+      ],
       "id": 6
     },
     {
