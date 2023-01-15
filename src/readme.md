@@ -11,6 +11,7 @@ Projeto do Yt refeito com melhorias:
 Arquitetura:
 -Arquitetura modular mais robusta e organizada
 -Nomes de funções mais claras;
+-Implementado barra de pesquisa
 Bibliotecas:
 -Utilização de modal para edição de dados;
 -API's consumidas através de axios ao invés de fetch

@@ -1,131 +1,166 @@
 {
   "projects": [
     {
-      "name": "teste 1",
-      "budget": "10000",
+      "name": "Contratar Dev Júnior React",
+      "budget": "3500",
       "category": {
-        "id": "3",
-        "name": "Design"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": [],
       "id": 1
     },
     {
-      "name": "teste 2",
-      "budget": "20",
+      "name": "Contratar Designer ",
+      "budget": "3000",
       "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
+        "id": "3",
+        "name": "Design"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 1275,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "10",
+          "description": "2",
+          "id": 805
+        },
+        {
+          "name": "teste",
+          "cost": "2",
+          "description": "2",
+          "id": 634
+        },
+        {
+          "name": "yrt",
+          "cost": "30",
+          "description": "66",
+          "id": 496
+        },
+        {
+          "name": "teste",
+          "cost": "55",
+          "description": "1",
+          "id": 207
+        },
+        {
+          "name": "teste",
+          "cost": "565",
+          "description": "3",
+          "id": 498
+        },
+        {
+          "name": "dfgdf",
+          "cost": "546",
+          "description": "ddsf",
+          "id": 200
+        },
+        {
+          "name": "d",
+          "cost": "1",
+          "description": "1",
+          "id": 291
+        },
+        {
+          "name": "ss",
+          "cost": "66",
+          "description": "6",
+          "id": 20
+        }
+      ],
       "id": 2
     },
     {
-      "name": "teste 3",
-      "budget": "1000",
+      "name": "Dev Pleno JavaScript",
+      "budget": "7000",
       "category": {
         "id": "1",
         "name": "Infraestrutura"
       },
-      "cost": 1000,
+      "cost": 22,
       "services": [
         {
           "name": "teste",
-          "cost": "2000",
+          "cost": "1",
           "description": "1",
-          "id": 883
+          "id": 820
+        },
+        {
+          "name": "teste",
+          "cost": "5",
+          "description": "5",
+          "id": 499
+        },
+        {
+          "name": "8",
+          "cost": "8",
+          "description": "8",
+          "id": 859
+        },
+        {
+          "name": "8",
+          "cost": "8",
+          "description": "8",
+          "id": 627
         }
       ],
       "id": 3
     },
     {
-      "name": "teste 4",
-      "budget": "600",
+      "name": "teste 2",
+      "budget": "100",
       "category": {
-        "id": "4",
-        "name": "Planejamento"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
-      "cost": 600,
+      "cost": 10,
       "services": [
         {
           "name": "teste",
-          "cost": "600",
-          "description": "1",
-          "id": 997
+          "cost": "10",
+          "description": "teste",
+          "id": 925
         }
       ],
       "id": 4
     },
     {
-      "name": "teste 5",
-      "budget": "900",
+      "name": "teste 4",
+      "budget": "3",
       "category": {
-        "id": "1",
-        "name": "Infraestrutura"
+        "id": "3",
+        "name": "Design"
       },
       "cost": 0,
       "services": [],
       "id": 5
     },
     {
-      "name": "teste 6",
-      "budget": "40000",
+      "name": "teste 3",
+      "budget": "2",
+      "category": {
+        "id": "1",
+        "name": "Infraestrutura"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 6
+    },
+    {
+      "name": "teste 5",
+      "budget": "4",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 95,
-      "services": [
-        {
-          "name": "teste 2",
-          "cost": "50",
-          "description": "1",
-          "id": 8
-        },
-        {
-          "name": "teste 3",
-          "cost": "40",
-          "description": "t",
-          "id": 959
-        },
-        {
-          "name": "teste 4",
-          "cost": "4",
-          "description": "s",
-          "id": 148
-        },
-        {
-          "name": "teste 5",
-          "cost": "1",
-          "description": "1",
-          "id": 612
-        }
-      ],
-      "id": 6
-    },
-    {
-      "name": "teste 7",
-      "budget": "8000",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 5,
-      "services": [
-        {
-          "name": "teste",
-          "cost": "5",
-          "description": "teste",
-          "id": 316
-        }
-      ],
+      "cost": 0,
+      "services": [],
       "id": 7
     },
     {
-      "name": "teste 8",
-      "budget": "900",
+      "name": "teste 10",
+      "budget": "2",
       "category": {
         "id": "1",
         "name": "Infraestrutura"
@@ -133,6 +168,101 @@
       "cost": 0,
       "services": [],
       "id": 8
+    },
+    {
+      "name": "teste 1",
+      "budget": "2",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 9
+    },
+    {
+      "name": "teste 12",
+      "budget": "1",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 10
+    },
+    {
+      "name": "teste 13",
+      "budget": "8",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 11
+    },
+    {
+      "name": "teste 13",
+      "budget": "5",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 12
+    },
+    {
+      "name": "teste 14",
+      "budget": "5",
+      "category": {
+        "id": "1",
+        "name": "Infraestrutura"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 13
+    },
+    {
+      "name": "teste 15",
+      "budget": "1",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 14
+    },
+    {
+      "name": "teste 17",
+      "budget": "5",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 15
+    },
+    {
+      "name": "teste 19",
+      "budget": "2",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 1,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "1",
+          "description": "1",
+          "id": 395
+        }
+      ],
+      "id": 16
     }
   ],
   "categories": [

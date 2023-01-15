@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom'
 // sass
 import './MenuNavbar.sass'
 // icons / img
 import { ImMenu } from "react-icons/im"
 import Logo from '../../assets/costs_logo.png'
 // hooks
+import { Link } from 'react-router-dom'
 import { useState } from "react"
+// components
+import SearchBar from '../Search_Bar/SearchBar'
 
 const MenuNavbar = () => {
 
@@ -19,6 +21,9 @@ const MenuNavbar = () => {
     <nav className='Menu-Navbar'>
       <div>
         <Link to={`/`}><img src={Logo} alt="Costs-Logo" /></Link>
+      </div>
+      <div>
+        <SearchBar />
       </div>
       <ul className='ul-navbar'>
         <li><Link to={`/`}>Home</Link></li>
