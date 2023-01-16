@@ -1,22 +1,14 @@
 // sass
 import './MenuNavbar.sass'
 // icons / img
-import { ImMenu } from "react-icons/im"
 import Logo from '../../assets/costs_logo.png'
 // hooks
 import { Link } from 'react-router-dom'
-import { useState } from "react"
 // components
 import SearchBar from '../Search_Bar/SearchBar'
+import MenuMobile from './MenuMobile'
 
 const MenuNavbar = () => {
-
-  const [mobileMenu, setMobileMenu] = useState(false)
-
-  const ShowMobileMenu = () => {
-    setMobileMenu(!mobileMenu)
-  }
-
   return (
     <nav className='Menu-Navbar'>
       <div>
@@ -30,17 +22,7 @@ const MenuNavbar = () => {
         <li><Link to={`/Cadastros`}>Cadastros</Link></li>
         <li><Link to={`/NewProject`}>Novo Projeto</Link></li>
       </ul>
-      <div className='sandwuiche-mobile-menu'>
-        <ImMenu onClick={ShowMobileMenu} className='ImMenu'/>
-      </div>
-      {mobileMenu && 
-        <ul className='ul-navbar-mobile'>
-          <li><Link to={`/`}>Home</Link></li>
-          <li><Link to={`/AboutUs`}>Sobre Nós</Link></li>
-          <li><Link to={`/Cadastros`}>Cadastros</Link></li>
-          <li><Link to={`/NewProject`}>Novo Projeto</Link></li>
-        </ul>
-      }
+      <MenuMobile />
     </nav>
   )
 }

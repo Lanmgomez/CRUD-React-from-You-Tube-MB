@@ -86,4 +86,22 @@
     background-color: #222;
     color: #fb3;
 }
+
+@media (max-width: 900px) {
+    .register_card {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+    }
+
+    .project_card_actions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project_card_actions a {
+        width: 96px;
+        margin-bottom: 10px;
+    }
+}
     
