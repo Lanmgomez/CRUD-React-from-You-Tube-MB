@@ -73,12 +73,12 @@
     },
     {
       "name": "Dev Pleno JavaScript",
-      "budget": "7000",
+      "budget": "7001",
       "category": {
         "id": "1",
         "name": "Infraestrutura"
       },
-      "cost": 22,
+      "cost": 14,
       "services": [
         {
           "name": "teste",
@@ -97,12 +97,6 @@
           "cost": "8",
           "description": "8",
           "id": 859
-        },
-        {
-          "name": "8",
-          "cost": "8",
-          "description": "8",
-          "id": 627
         }
       ],
       "id": 3
@@ -247,22 +241,22 @@
       "id": 15
     },
     {
-      "name": "teste 19",
-      "budget": "2",
+      "name": "Contratar Dev Júnior",
+      "budget": "6000",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 1,
+      "cost": 1000,
       "services": [
         {
-          "name": "teste",
-          "cost": "1",
-          "description": "1",
-          "id": 395
+          "name": "Criar Landing Page",
+          "cost": "1000",
+          "description": "Criar Landing Page",
+          "id": 459
         }
       ],
-      "id": 16
+      "id": 17
     }
   ],
   "categories": [
